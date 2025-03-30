@@ -4,7 +4,7 @@ COPY pom.xml /app
 RUN mvn dependency:resolve
 copy . /app
 RUN mvn clean
-RUN mvn package -DskipTests -x
+RUN mvn package -DskipTests -X
 
 FROM openjdk:17
 COPY --from=build /app/target/*.jar sandbox-rest-example.jar
